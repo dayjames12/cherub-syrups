@@ -1,4 +1,8 @@
-<<<<<<< HEAD
+# cherub-syrups
+E-commerce website for the Northern California simple syrup company, Cherub Syrups.
+
+=============
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
@@ -70,6 +74,3 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
 =======
-# cherub-syrups
-E-commerce website for the Northern California simple syrup company, Cherub Syrups.
->>>>>>> e1f17e6bf1e443840084093f34dcf8bcfa1b0028
