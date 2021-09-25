@@ -1,14 +1,25 @@
 import React from 'react'
 import { Container, Typography, Button, Grid } from '@material-ui/core'
+import { Link } from 'react-router-dom'
 
 import useStyles from './styles'
+import CartItem from './CartItem/CartItem'
 
-const Cart = ({ cart }) => {
+const Cart = ({
+    cart,
+    handleUpdateCartQuantity,
+    handleRemoveFromCart,
+    handleEmptyCart,
+}) => {
     const classes = useStyles()
 
     const EmptyCart = () => (
         <Typography variant="subtitle1">
-            No items in the cart! Go add some!
+            No items in the cart!
+            <Link to="/" className={classes.link}>
+                ...Go add some
+            </Link>
+            !
         </Typography>
     )
 
@@ -17,7 +28,11 @@ const Cart = ({ cart }) => {
             <Grid container spacing={3}>
                 {cart.line_items.map((item) => (
                     <Grid item xs={12} sm={4} key={item.id}>
-                        <div>{item.name}</div>
+                        <CartItem
+                            item={item}
+                            onUpdateCartQuantity={handleUpdateCartQuantity}
+                            onRemoveFromCart={handleRemoveFromCart}
+                        />
                     </Grid>
                 ))}
             </Grid>
@@ -32,6 +47,7 @@ const Cart = ({ cart }) => {
                         type="button"
                         variant="contained"
                         color="secondary"
+                        onClick={handleEmptyCart}
                     >
                         Empty Cart
                     </Button>
@@ -54,7 +70,7 @@ const Cart = ({ cart }) => {
     return (
         <Container>
             <div className={classes.toolbar} />
-            <Typography className={classes.title} variant="h3">
+            <Typography className={classes.title} variant="h3" gutterBottom>
                 Your Shopping Cart
             </Typography>
             {/* if empty is 0 then !0 is true. else if number then false and the cart is full */}
