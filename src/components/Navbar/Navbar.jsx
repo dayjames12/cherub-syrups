@@ -20,21 +20,21 @@ const Navbar = ({ totalItems }) => {
 
     return (
         <>
-            <AppBar position="fixed" className={classes.appBar} color="inherit">
+            <AppBar position='fixed' className={classes.appBar} color='inherit'>
                 <Toolbar>
                     <Typography
                         component={Link}
-                        to="/"
-                        variant="h6"
+                        to='/'
+                        variant='h6'
                         className={classes.title}
-                        color="inherit"
+                        color='inherit'
                     >
-                        <img
+                        {/* <img
                             src={logo}
                             alt="Cherub Syrups"
                             height="50px"
                             className={classes.image}
-                        />
+                        /> */}
                         cherub syrups
                     </Typography>
                     <div className={classes.grow} />
@@ -42,13 +42,13 @@ const Navbar = ({ totalItems }) => {
                         <div className={classes.button}>
                             <IconButton
                                 component={Link}
-                                to="/cart"
-                                aria-label="Show cart items"
-                                color="inherit"
+                                to='/cart'
+                                aria-label='Show cart items'
+                                color='inherit'
                             >
                                 <Badge
                                     badgeContent={totalItems}
-                                    color="secondary"
+                                    color='secondary'
                                 >
                                     <ShoppingCart />
                                 </Badge>

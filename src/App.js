@@ -5,6 +5,8 @@ import { commerce } from './lib/commerce'
 
 import { Products, Navbar, Cart, Checkout } from './components/'
 
+import video from './assets/comp1.mp4'
+
 const App = () => {
     const [products, setProducts] = useState([])
     const [cart, setCart] = useState({})
@@ -77,14 +79,21 @@ const App = () => {
         <Router>
             <div>
                 <Navbar totalItems={cart.total_items} />
+
+                {/* <div style={{ outline: '5px dashed red', marginTop: '100px' }}>
+                    <video style={{ width: '100%' }} autoPlay muted>
+                        <source src={video} type='video/mp4' />
+                    </video>
+                </div> */}
+
                 <Switch>
-                    <Route exact path="/">
+                    <Route exact path='/'>
                         <Products
                             products={products}
                             onAddToCart={handleAddToCart}
                         />
                     </Route>
-                    <Route exact path="/cart">
+                    <Route exact path='/cart'>
                         <Cart
                             cart={cart}
                             handleUpdateCartQuantity={handleUpdateCartQuantity}
@@ -92,7 +101,7 @@ const App = () => {
                             handleEmptyCart={handleEmptyCart}
                         />
                     </Route>
-                    <Route exact path="/checkout">
+                    <Route exact path='/checkout'>
                         <Checkout
                             cart={cart}
                             order={order}

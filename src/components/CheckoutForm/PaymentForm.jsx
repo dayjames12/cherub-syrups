@@ -17,6 +17,7 @@ const PaymentForm = ({
     backStep,
     onCaptureCheckout,
     nextStep,
+    timeout,
 }) => {
     const handleSubmit = async (event, elements, stripe) => {
         event.preventDefault()
@@ -59,6 +60,8 @@ const PaymentForm = ({
                 },
             }
             onCaptureCheckout(checkoutToken.id, orderData)
+
+            timeout()
             nextStep()
         }
     }
@@ -66,7 +69,7 @@ const PaymentForm = ({
         <>
             <Review checkoutToken={checkoutToken} />
             <Divider />
-            <Typography variant="h6" gutterBottom style={{ margin: '20px 0' }}>
+            <Typography variant='h6' gutterBottom style={{ margin: '20px 0' }}>
                 Payment Method
             </Typography>
             <Elements stripe={stripePromise}>
@@ -83,14 +86,14 @@ const PaymentForm = ({
                                     justifyContent: 'space-between',
                                 }}
                             >
-                                <Button variant="outline" onClick={backStep}>
+                                <Button variant='outline' onClick={backStep}>
                                     Back
                                 </Button>
                                 <Button
-                                    type="submit"
-                                    variant="contained"
+                                    type='submit'
+                                    variant='contained'
                                     disabled={!stripe}
-                                    color="primary"
+                                    color='primary'
                                 >
                                     Pay{' '}
                                     {
